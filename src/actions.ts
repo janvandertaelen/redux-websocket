@@ -11,6 +11,7 @@ import {
   WEBSOCKET_MESSAGE,
   WEBSOCKET_OPEN,
   WEBSOCKET_SEND,
+  WEBSOCKET_PING,
 } from './actionTypes';
 import { Action, Deserializer } from './types';
 
@@ -84,6 +85,8 @@ export const disconnect = (prefix?: string) =>
   buildAction(`${prefix || DEFAULT_PREFIX}::${WEBSOCKET_DISCONNECT}`);
 export const send = (msg: any, prefix?: string) =>
   buildAction(`${prefix || DEFAULT_PREFIX}::${WEBSOCKET_SEND}`, msg);
+export const ping = (msg: any, prefix?: string) =>
+    buildAction(`${prefix || DEFAULT_PREFIX}::${WEBSOCKET_PING}`, msg);
 
 // Action creators for actions dispatched by redux-websocket. All of these must
 // take a prefix. The default prefix should be used unless a user has created
