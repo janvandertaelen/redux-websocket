@@ -129,6 +129,23 @@ export default class ReduxWebSocket {
   };
 
   /**
+   * WebSocket ping event handler.
+   *
+   * @param {MiddlewareAPI} _store
+   *
+   * @throws {Error} Socket connection must exist.
+   */
+  ping = (_store: MiddlewareAPI) => {
+    if (this.websocket) {
+      this.websocket.ping();
+    } else {
+      throw new Error(
+          'Socket connection not initialized. Dispatch WEBSOCKET_CONNECT first'
+      );
+    }
+  };
+
+  /**
    * Handle a close event.
    *
    * @param {Dispatch} dispatch

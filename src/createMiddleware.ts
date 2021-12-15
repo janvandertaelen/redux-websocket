@@ -38,6 +38,7 @@ export default (rawOptions?: Options): Middleware => {
     [actionTypes.WEBSOCKET_CONNECT]: reduxWebsocket.connect,
     [actionTypes.WEBSOCKET_DISCONNECT]: reduxWebsocket.disconnect,
     [actionTypes.WEBSOCKET_SEND]: reduxWebsocket.send,
+    [actionTypes.WEBSOCKET_PING]: reduxWebsocket.ping,
   };
 
   // Middleware function.
