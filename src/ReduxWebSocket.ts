@@ -137,6 +137,7 @@ export default class ReduxWebSocket {
    */
   ping = (_store: MiddlewareAPI) => {
     if (this.websocket) {
+      // @ts-ignore
       this.websocket.ping();
     } else {
       throw new Error(

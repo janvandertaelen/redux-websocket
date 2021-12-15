@@ -5,6 +5,7 @@ import {
   WEBSOCKET_MESSAGE,
   WEBSOCKET_OPEN,
   WEBSOCKET_SEND,
+  WEBSOCKET_PING,
 } from './actionTypes';
 
 type Serializer = (
@@ -19,7 +20,8 @@ type ActionType =
   | typeof WEBSOCKET_DISCONNECT
   | typeof WEBSOCKET_MESSAGE
   | typeof WEBSOCKET_OPEN
-  | typeof WEBSOCKET_SEND;
+  | typeof WEBSOCKET_SEND
+  | typeof WEBSOCKET_PING;
 
 type Action =
   | { type: typeof WEBSOCKET_CLOSED; payload: any; meta?: any }
@@ -27,7 +29,8 @@ type Action =
   | { type: typeof WEBSOCKET_DISCONNECT; payload: any; meta?: any }
   | { type: typeof WEBSOCKET_MESSAGE; payload: any; meta?: any }
   | { type: typeof WEBSOCKET_OPEN; payload: any; meta?: any }
-  | { type: typeof WEBSOCKET_SEND; payload: any; meta?: any };
+  | { type: typeof WEBSOCKET_SEND; payload: any; meta?: any }
+  | { type: typeof WEBSOCKET_PING; meta?: any };
 
 type Options = {
   onOpen?: (s: WebSocket) => void;
